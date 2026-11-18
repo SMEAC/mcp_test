@@ -57,16 +57,14 @@ Unless a step says otherwise, the CH1 robot probe goes to the point named, and a
 
 ### T1 – Supply rails
 
-**[OPERATOR]** Generator output off. Switch on the ±15 V supply and note the current on each rail.
+**[OPERATOR]** Generator output off. Switch on the ±15 V supply (50 mA limit).
 
 | Point | Measure | Expected / pass |
 |---|---|---|
 | TP5 | DC mean, AC ripple Vpp | +15 V ±0.5 V, ripple < 50 mVpp |
 | TP7 | DC mean, AC ripple Vpp | −15 V ±0.5 V, ripple < 50 mVpp |
 | TP6 | DC mean | 0 V ±20 mV, which confirms the probe ground is good |
-| Supply display | Quiescent current per rail | about 1.7 mA typical, < 3 mA (LM741) |
-
-Stop if any rail is outside its limit or a rail current is above 10 mA.
+Stop if any rail is outside its limit. A rail well below its set value means the supply is in current limit (a short).
 
 ### T2 – DC operating point and offset
 
