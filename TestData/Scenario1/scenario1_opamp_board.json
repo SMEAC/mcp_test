@@ -1,0 +1,44 @@
+{
+  "name": "MCP Measurement Test Board - Scenario 1 (100 x 50 mm)",
+  "notes": "From TestData/Scenario1 (Fusion 360 PCB.fbrd / Schematic.fsch, 18/11/26). Circuit: R3/C1 RC low-pass into an LM741 inverting amplifier (R1 input, R2 feedback, +IN to GND); supply +/-V on JP1. Board frame: origin = lower-left corner of the PCB on its top surface, X along the 100 mm edge, Y along the 50 mm edge, Z up. Test point X/Y are exact from the board file. NOT YET TAUGHT: board_frame origin/rotation are placeholders copied from example_board, and z_mm = 8.5 assumes standard 2.54 mm single header pins (2.5 mm plastic + 6 mm pin). Teach the frame and measure the pin height with robot_teach before probing the real board. Clearance 30 mm clears C1 (radial, 12.5 mm tall). Keep the scope probe ground clipped to GND (TP6 or J3/J2 pin 1).",
+  "board_frame": {
+    "origin_mm": [-350.0, -200.0, 20.0],
+    "rotation_vector_rad": [0.0, 0.0, 0.0]
+  },
+  "probe": {
+    "tool_rz_deg": 0.0
+  },
+  "motion": {
+    "clearance_height_mm": 30.0,
+    "approach_height_mm": 3.0,
+    "contact_depth_mm": 0.2,
+    "travel_speed_mm_s": 100.0,
+    "travel_accel_mm_s2": 500.0,
+    "joint_speed_deg_s": 45.0,
+    "joint_accel_deg_s2": 90.0,
+    "descend_speed_mm_s": 30.0,
+    "probe_speed_mm_s": 5.0,
+    "probe_accel_mm_s2": 100.0,
+    "retract_speed_mm_s": 30.0,
+    "travel_motion": "auto",
+    "max_force_n": null,
+    "position_tolerance_mm": 1.0,
+    "max_nudge_mm": 3.0
+  },
+  "home": {
+    "joints_deg": [0.0, -90.0, 90.0, -90.0, -90.0, 0.0]
+  },
+  "limits": {
+    "max_reach_mm": 480.0,
+    "min_base_z_mm": 10.0
+  },
+  "test_points": [
+    {"id": "TP1", "name": "TP1-INPUT", "x_mm": 17.0, "y_mm": 27.0, "z_mm": 8.5, "net": "IN", "description": "Circuit input from J3 pin 2, before R3", "aliases": ["input", "in"]},
+    {"id": "TP2", "name": "TP2-RC", "x_mm": 30.0, "y_mm": 25.0, "z_mm": 8.5, "net": "N$5", "description": "RC low-pass node (R3 / C1 / R1)", "aliases": ["rc", "filter"]},
+    {"id": "TP3", "name": "TP3-NEG", "x_mm": 45.0, "y_mm": 35.0, "z_mm": 8.5, "net": "N$6", "description": "LM741 inverting input (virtual ground, ~0 V AC)", "aliases": ["neg", "inverting input"]},
+    {"id": "TP4", "name": "TP4-OUT", "x_mm": 80.0, "y_mm": 35.0, "z_mm": 8.5, "net": "OUT", "description": "LM741 output, also on J2 pin 1", "aliases": ["out", "output"]},
+    {"id": "TP5", "name": "TP5-VCC+", "x_mm": 60.0, "y_mm": 12.0, "z_mm": 8.5, "net": "VCC+", "description": "Positive supply (JP1 pin 1, IC1 pin 7)", "aliases": ["positive supply", "vplus"]},
+    {"id": "TP6", "name": "TP6-GND", "x_mm": 55.0, "y_mm": 12.0, "z_mm": 8.5, "net": "GND", "description": "Ground (JP1 pin 2)", "aliases": ["gnd", "ground"]},
+    {"id": "TP7", "name": "TP7-VCC-", "x_mm": 50.0, "y_mm": 12.0, "z_mm": 8.5, "net": "VCC-", "description": "Negative supply (JP1 pin 3, IC1 pin 4)", "aliases": ["negative supply", "vminus"]}
+  ]
+}

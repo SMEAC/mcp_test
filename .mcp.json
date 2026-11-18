@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "msox2014a": {
+      "command": "uv",
+      "args": ["run", "--directory", "C:\\dev\\mcp_stuff\\mcp_msox2014a", "msox2014a-mcp"],
+      "env": {
+        "MSOX_RESOURCE": "USB0::0x0957::0x1798::MY56271763::0::INSTR"
+      }
+    },
+    "ur3e": {
+      "command": "uv",
+      "args": ["run", "--directory", "C:\\dev\\mcp_stuff\\mcp_ur3e", "ur3e-mcp"],
+      "env": {
+        "UR_HOST": "192.168.1.20",
+        "UR_BOARDS_DIR": "C:\\dev\\mcp_stuff\\mcp_test\\TestData",
+        "UR_BOARD_FILE": "example_board"
+      }
+    }    
+  }
+}
